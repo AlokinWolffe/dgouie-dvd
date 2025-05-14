@@ -1,4 +1,4 @@
-let dvd = document.getElementById('dvd')
+let dvd = document.getElementById('dvd');
 let x_inc = 4;
 let y_inc = 4;
 let colour = 0;
@@ -6,12 +6,13 @@ let colour = 0;
 function init() {
 
     dvd.style.position = 'absolute';
+    dvd.style.zIndex = 2;
     setInterval(frame, 5);
 
 }
 
 function update_colour(){
-    if (colour == 360){
+    if (colour >= 360){
         colour = 0;
     }
     dvd.style.filter = `hue-rotate(${colour}deg)`;
@@ -46,5 +47,14 @@ function frame() {
     dvd.style.top = dvd.offsetTop + y_inc;
     dvd.style.left = dvd.offsetLeft + x_inc;
 }
+
+function pick_image(){
+    let img_num = Math.floor(Math.random() * 4) + 1;
+    let img_element = document.getElementById(`err${img_num}`);
+
+    img_element.style.display = "block";
+}
+
+dvd.addEventListener('click', pick_image);
 
 init();
