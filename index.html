@@ -1,7 +1,9 @@
 <html>
     <head>
+        <title>A space for all ouppies!</title>
+        <link rel="icon" type="image/x-icon" href="./animegirl.gif">
         <style>
-            #dvd img, #err-container img {
+            #dvd img, #dvd2 img, #dvd3 img, #err-container img {
                 pointer-events: none;
                 -webkit-user-drag: none;
                 user-select: none;
@@ -10,7 +12,15 @@
                 -ms-user-select: none;
             }
 
-            #dvd {
+            #dvd2, #dvd3 {
+                display: none;
+            }
+
+            #dvd2 img, #dvd3 img {
+                height: 200px;
+            }
+
+            #dvd, #dvd2, #dvd3 {
                 cursor: grabbing;
             }
 
@@ -29,6 +39,7 @@
                 height: 150px;
                 position: absolute;
             }
+
         </style>
     </head>
 
@@ -44,6 +55,14 @@
 
         <div id="dvd">
             <img src="./dgouie.png" draggable="false">
+        </div>
+
+        <div id="dvd2">
+            <img src="./maxrot.gif" draggable="false">
+        </div>
+
+        <div id="dvd3">
+            <img src="./reispin.gif" draggable="false">
         </div>
         
         <script src="./main.js" charset="utf-8"></script>
