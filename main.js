@@ -1,6 +1,6 @@
 let dvd = document.getElementById('dvd');
-let x_inc = 4;
-let y_inc = 4;
+let x_inc = 3;
+let y_inc = 3;
 let colour = 0;
 
 function init() {
@@ -50,9 +50,35 @@ function frame() {
 
 function pick_image(){
     let img_num = Math.floor(Math.random() * 4) + 1;
+ 
+    let err_container = document.getElementById("err-container");
+    let img = document.createElement("img");
+    img.src = `./err${img_num}.png`;
+    img.style.zIndex = 1;
+    img.style.left = Math.floor(Math.random() * (window.innerWidth - 150)) + "px";
+    img.style.top = Math.floor(Math.random() * (window.innerHeight - 150)) + "px";
+    err_container.insertBefore(img, null);
+
+    let opacity = 1.0;
+
+    function set_opacity() {
+        if (opacity <= 0) { 
+            img.remove();
+            return; 
+        }
+
+        img.style.opacity = opacity;
+        opacity = opacity - 0.01;
+        setTimeout(set_opacity, 50);
+    }
+
+    setTimeout(set_opacity, 50);
+
+    /*
     let img_element = document.getElementById(`err${img_num}`);
 
     img_element.style.display = "block";
+    */
 }
 
 dvd.addEventListener('click', pick_image);

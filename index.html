@@ -1,9 +1,8 @@
 <html>
     <head>
         <style>
-            #dvd img {
+            #dvd img, #err-container img {
                 pointer-events: none;
-                user-drag: none;
                 -webkit-user-drag: none;
                 user-select: none;
                 -moz-user-select: none;
@@ -26,24 +25,25 @@
                 background-size: cover;
             }
 
-            #err1,#err2,#err3,#err4 {
-                display: none;
-            }
-
-             #err1 img, #err2 img,#err3 img,#err4 img {
+            #err-container img {
                 height: 150px;
+                position: absolute;
             }
         </style>
     </head>
 
     <body>
+        <div id="err-container"></div>
+        
+        <!--
         <div id="err1"><img src="./err1.jpg"></div>
         <div id="err2"><img src="./err2.png"></div>
         <div id="err3"><img src="./err3.png"></div>
         <div id="err4"><img src="./err4.png"></div>
+        -->
 
         <div id="dvd">
-            <img src="./dgouie.png">
+            <img src="./dgouie.png" draggable="false">
         </div>
         
         <script src="./main.js" charset="utf-8"></script>
